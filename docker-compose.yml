@@ -14,9 +14,6 @@ services:
   jenkins:
     container_name: dev-jenkins
     image: jenkins/jenkins:lts
-    ports:
-      - "8090:8080"
-      - "50000:50000"
     environment:
       - JENKINS_OPTS="--prefix=/jenkins"
     volumes:
@@ -25,8 +22,6 @@ services:
   nexus:
     container_name: dev-nexus
     image: sonatype/nexus3
-    ports:
-      - "8081:8081"
     environment:
       - "INSTALL4J_ADD_VM_PARAMS=-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=/nexus-data/javaprefs"
       - "NEXUS_CONTEXT=nexus"
@@ -36,8 +31,6 @@ services:
   sonarqube: 
     container_name: dev-sonarqube 
     image: sonarqube:lts-community
-    ports:
-      - "9000:9000"
     environment:
       - "SONAR_WEB_CONTEXT=/sonarqube"
     volumes:
