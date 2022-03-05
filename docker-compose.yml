@@ -21,7 +21,10 @@ services:
 
   nexus:
     container_name: dev-nexus
-    image: sonatype/nexus3
+    build: 
+      context: .
+      dockerfile: nexus3.Dockerfile
+    image: nexus3:lts
     environment:
       - "INSTALL4J_ADD_VM_PARAMS=-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=/nexus-data/javaprefs"
       - "NEXUS_CONTEXT=nexus"
