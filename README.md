@@ -15,6 +15,8 @@ A service stack for DevOps pipelines.
 
 ### URL's
 
-- Jenkins : *localhost*
-- Nexus : *localhost:8081/nexus*
-- SonarQube : *localhost:9000*
+- Jenkins : *localhost/jenkins*
+- Nexus : *localhost/nexus*
+- SonarQube : *localhost/sonarqube*
+
+NB - All services are running behind apache reverse proxy

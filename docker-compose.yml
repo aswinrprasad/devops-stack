@@ -1,11 +1,24 @@
 version: "3"
 services: 
+  apache: 
+    container_name: dev-apache
+    image: bitnami/apache
+    ports:
+      - "80:8083"
+      - "443:8443"
+    environment:
+      - APACHE_HTTP_PORT_NUMBER=8083
+    volumes:
+      - "./db/apache-data/conf/httpd.conf:/opt/bitnami/apache/conf/httpd.conf"
+
   jenkins:
     container_name: dev-jenkins
     image: jenkins/jenkins:lts
     ports:
-      - "80:8080"
+      - "8090:8080"
       - "50000:50000"
+    environment:
+      - JENKINS_OPTS="--prefix=/jenkins"
     volumes:
       - "./db/jenkins-data/:/var/jenkins_home"
 
@@ -21,10 +34,12 @@ services:
       - "./db/nexus-data:/nexus-data"
 
   sonarqube: 
-    container_name: dev-sonarqube
+    container_name: dev-sonarqube 
     image: sonarqube:lts-community
     ports:
       - "9000:9000"
+    environment:
+      - "SONAR_WEB_CONTEXT=/sonarqube"
     volumes:
       - "./db/sonar-data/data:/opt/sonarqube/data"
       - "./db/sonar-data/extensions:/opt/sonarqube/extensions"
