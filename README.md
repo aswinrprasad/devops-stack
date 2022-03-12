@@ -51,7 +51,6 @@ NB - Use Port 8085 for the docker group repo that is created
     $ docker pull localhost/<image:tag>
     ```
 - The pulled image will be present in the docker group repository
-<br/>
-<br/>
+
 ---
 <p align="center"> Made with :gift_heart </p>   
