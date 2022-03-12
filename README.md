@@ -12,7 +12,7 @@ A service stack for DevOps pipelines.
     ```
     $ docker-compose down
     ```
-
+---
 ## URL's
 
 - Jenkins : *localhost/jenkins*
@@ -21,6 +21,18 @@ A service stack for DevOps pipelines.
 
 NB - All services are running behind apache reverse proxy
 
+---
+### Jenkins service with Docker
+#### Enable Docker after container starts running
+```
+$ docker exec -it dev-jenkins bash
+
+
+#Inside container shell 
+
+jenkins@5ed8c8e06e64:/$ sudo chmod 666 /var/run/docker.sock
+```
+---
 ### Docker Repository for Nexus 3 Service
 
 #### Create docker repos
@@ -39,4 +51,7 @@ NB - Use Port 8085 for the docker group repo that is created
     $ docker pull localhost/<image:tag>
     ```
 - The pulled image will be present in the docker group repository
-
+<br/>
+<br/>
+---
+<p align="center"> Made with :gift_heart </p>   

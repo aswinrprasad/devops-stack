@@ -13,11 +13,16 @@ services:
 
   jenkins:
     container_name: dev-jenkins
-    image: jenkins/jenkins:lts
+    build: 
+      context: .
+      dockerfile: jenkins.Dockerfile
+    image: jenkins-with-docker:lts
     environment:
       - JENKINS_OPTS="--prefix=/jenkins"
     volumes:
       - "./db/jenkins-data/:/var/jenkins_home"
+      - "jenkins-docker-certs:/certs/client:ro"
+      - "//var/run/docker.sock:/var/run/docker.sock"
 
   nexus:
     container_name: dev-nexus
@@ -41,3 +46,5 @@ services:
       - "./db/sonar-data/extensions:/opt/sonarqube/extensions"
       - "./db/sonar-data/logs:/opt/sonarqube/logs"
 
+volumes:
+  jenkins-docker-certs:
