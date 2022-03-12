@@ -53,4 +53,4 @@ NB - Use Port 8085 for the docker group repo that is created
 - The pulled image will be present in the docker group repository
 
 ---
-<p align="center"> Made with :gift_heart </p>   
+<p align="center"> Made with ❤️ </p>   
